@@ -1,5 +1,5 @@
 import { HomeHeaderComponent } from "@/components/header";
-import { VideobgComponent } from "@/components/welcome/videobg";
+import { VideobgComponent } from "@/components/video/videobg";
 
 export default function Home() {
   return (

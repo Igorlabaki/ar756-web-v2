@@ -11,7 +11,7 @@ export function WelcomeHeaderComponent() {
       width: 0,
     },
     onscreen: {
-      width: '25%',
+      width: '41.5%',
       y: 0,
     },
   };
@@ -28,10 +28,10 @@ export function WelcomeHeaderComponent() {
         />
         <AnimatedTitleComponent
           title="BEM-VINDO A VILA"
-          className={`text-start text-[18px]  md:text-[25px] tracking-[0.25rem]  md:w-[60%] `}
+          className={`text-start text-[18px]  md:text-[25px] tracking-[0.25rem]  md:w-[55%] `}
         />
       </div>
-      <AnimatedVerticalComponent className="flex justify-center items-center md:items-end md:justify-end  w-full md:w-[55%] ">
+      <AnimatedVerticalComponent className="flex justify-center items-center md:items-end md:justify-end  w-full md:w-[58%] ">
         <ImageComponent
           alt={'logo AR756'}
           h={'h-[80px] md:h-[100px] '}

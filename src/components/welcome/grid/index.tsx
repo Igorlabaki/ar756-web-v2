@@ -1,23 +1,40 @@
-import { GridItemComponent } from './itemGrid';
+"use client"
 
-import { Image } from '@prisma/client';
-
+import { useState } from "react";
+import { ImageType } from "@/types";
+import { GridItemComponent } from "./itemGrid";
+import { GridModalComponent } from "./gridModal";
 interface WelcomeGridProps {
-  imageList: Image[];
+  imageList: ImageType[];
 }
 
 export function WelcomeGridComponent({ imageList }: WelcomeGridProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImageId, setSelectedImageId] = useState<string | undefined>("")
   return (
     <div
-      className={`relative w-full grid grid-cols-14 grid-rows-8 flex-1 gap-2 pt-20 overflow-hidden h-[600px]`}
+      className={`relative w-full grid grid-cols-14 grid-rows-8 gap-2 overflow-hidden h-[28.125rem]`}
     >
-      {imageList?.map((gridItem: Image, index: number) => {
+      {imageList?.map((gridItem: ImageType, index: number) => {
         return (
-          <GridItemComponent
-            gridItem={gridItem}
-            index={index}
-            key={index}
-          />
+          <>
+            <GridItemComponent
+              gridItem={gridItem}
+              index={index}
+              key={gridItem.id}
+              setIsModalOpen={setIsModalOpen}
+              setSelectedImageId={setSelectedImageId}
+            />
+            {isModalOpen && (
+              <GridModalComponent
+                key={index}
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
+                imageId={selectedImageId}
+                imageList={imageList}
+              />
+            )}
+          </>
         );
       })}
     </div>

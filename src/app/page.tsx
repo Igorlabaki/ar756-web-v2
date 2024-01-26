@@ -37,6 +37,27 @@ export   default async function Home() {
   ).then(async (resp) => {
     return await resp.json();
   });
+
+  const textRegrasList = await fetch(
+    `${process.env.BASE_URL}/text/getByArea/regras`,
+    {
+      method: "GET",
+      cache: "no-cache",
+    }
+  ).then(async (resp) => {
+    return await resp.json();
+  });
+
+  const textSobreList = await fetch(
+    `${process.env.BASE_URL}/text/getByArea/sobre`,
+    {
+      method: "GET",
+      cache: "no-cache",
+    }
+  ).then(async (resp) => {
+    return await resp.json();
+  });
+
   return (
     <main className="bg-faixada flex flex-col flex-1 bg-gray-300 min-h-screen w-full">
       <HomeHeaderComponent />
@@ -46,7 +67,7 @@ export   default async function Home() {
         <ComodidadeComponent />
        <ServicosComponents />
       </ShowOnlyOnWebComponent>
-      <ExploreComponent cardImageList={cardImageList} imageList={imageList} questionList={questionList}/>
+      <ExploreComponent cardImageList={cardImageList} imageList={imageList} questionList={questionList} textRegrasList={textRegrasList} textSobreList={textSobreList}/>
       <FooterComponent />
     </main>
   );

@@ -1,12 +1,11 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-
-import { Image } from '@prisma/client';
 import { AnimatePresence, Variants, motion } from 'framer-motion';
+import { ImageType } from '@/types';
 
 interface WelcomeCarroucelProps {
-  imageList: Image[];
+  imageList: ImageType[];
 }
 
 export function WelcomeCarroucelComponent({ imageList }: WelcomeCarroucelProps) {
@@ -46,7 +45,7 @@ export function WelcomeCarroucelComponent({ imageList }: WelcomeCarroucelProps) 
         className="flex w-full h-full p-1 gap-x-1 "
       >
         <AnimatePresence>
-          {imageList?.map((item: Image) => {
+          {imageList?.map((item: ImageType) => {
             return (
               <motion.img
                 className="min-w-full min-h-full overflow-hidden rounded-md "

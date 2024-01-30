@@ -22,3 +22,27 @@ export interface QuestionType{
   question: string;
   response: string;
 }
+export interface ValueType{
+  id: string;
+  valor: string;
+  titulo: string;
+}
+
+export interface CreateOrcamentoReqBody {
+  trafegoCanal: string;
+  conheceEspaco: boolean;
+  dataFim: Date;
+  dataInicio: Date;
+  seguranca: boolean;
+  limpeza: boolean;
+  recepcionista: boolean;
+  nome: string;
+  email: string;
+  telefone: string;
+  texto: string;
+  convidados: number;
+  valorBase: number;
+  qtdHorasExtras: number;
+  valorHoraExtra: number;
+  total: number;
+}

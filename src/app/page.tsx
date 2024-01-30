@@ -61,7 +61,7 @@ export   default async function Home() {
   return (
     <main className="bg-faixada flex flex-col flex-1 bg-gray-300 min-h-screen w-full">
       <HomeHeaderComponent />
-      <VideobgComponent />
+      <VideobgComponent/>
       <WelcomeComponent/>
       <ShowOnlyOnWebComponent>
         <ComodidadeComponent />

@@ -13,6 +13,7 @@ interface ExploreProps {
   imageList: ImageType[];
   textSobreList: TextType[];
   cardImageList: ImageType[];
+  imageSobreList: ImageType[];
   textRegrasList: TextType[];
   questionList: QuestionType[];
 }
@@ -23,6 +24,7 @@ export function ExploreComponent({
   questionList,
   textRegrasList,
   textSobreList,
+  imageSobreList
 }: ExploreProps) {
   const [galeriaModal, setGaleriaModal] = useState(false);
   const [regrasModal, setRegrasModal] = useState(false);
@@ -123,36 +125,11 @@ export function ExploreComponent({
               handleCloseRegrasModal={handleCloseRegrasModal}
               textRegrasList={textRegrasList}
               textSobreList={textSobreList}
+              imageSobreList={imageSobreList}
             />
           </ModalComponent>
         )}
       </div>
     </>
   );
-}
-
-/*  
-
- 
- */
-{
-  /*     
-      {comodidadesServicosModal && (
-        <ModalComponent
-          onClose={handleCloseComodidadeServicoModal}
-          styleInternal="max-w-[90%] min-w-[90%]  max-h-[90%] min-h-[90%]  md:max-w-[600px]  md:min-w-[600px]   relative"
-        >
-          <ComodidadesCardComponent
-            handleCloseComodidadeServicoModal={handleCloseComodidadeServicoModal}
-          />
-        </ModalComponent>
-      )}
-      {regrasModal && (
-        <ModalComponent
-          onClose={handleCloseregrasModal}
-          styleInternal="max-w-[90%] min-w-[90%]  max-h-[90%] min-h-[90%] md:max-w-[600px]  md:min-w-[600px] relative"
-        >
-          <RegrasCardComponent handleCloseregrasModal={handleCloseregrasModal} />
-        </ModalComponent>
-      )} */
 }

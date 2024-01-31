@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ImageType } from '@/types';
 
 interface CarouselProps{
-  imageList: ImageType[];
+  imageList: ImageType[] | null;
 }
 
 export  default function CarouselComponent({imageList}:CarouselProps) {
@@ -15,24 +15,24 @@ export  default function CarouselComponent({imageList}:CarouselProps) {
   useEffect(() => {
     setWidth(() => caroucel.current.scrollWidth - caroucel.current.offsetWidth + 100);
   }, [caroucel?.current?.scrollWidth, imageList, caroucel]);
-  console.log(imageList)
+  console.log(width)
   return (
     <motion.div
       ref={caroucel}
-      className="flex flex-col items-center justify-center mx-1 overflow-hidden bg-gray-200 rounded-md md:flex-row cursor-grab h-[400px] w-[600px]"
+      className="flex flex-col items-center justify-center mx-1 overflow-hidden w-full h-[300px]  rounded-md md:flex-row cursor-grab"
     >
       <motion.div
         drag="x"
         initial={{ x: -100 }}
         dragConstraints={{ right: 0, left: -width }}
         whileTap={{ cursor: 'grabbing' }}
-        className="flex w-full h-full p-1 gap-x-1 "
+        className="flex p-1 gap-x-1  w-full h-full"
       >
         <AnimatePresence>
           {imageList?.map((item: ImageType) => {
             return (
               <motion.img
-                className="h-[400px] w-[600px] overflow-hidden rounded-md "
+                className="min-h-full min-w-full overflow-hidden rounded-md "
                 key={item?.id}
                 src={item?.imageUrl}
               />

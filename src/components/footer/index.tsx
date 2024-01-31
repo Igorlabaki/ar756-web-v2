@@ -25,7 +25,7 @@ export function FooterComponent() {
             alt={'logo-branco'}
             h={'h-[80px] md:h-[100px] '}
             w={'w-[220px] md:w-[320px]'}
-            src={'/assets/images/logo/branco.png'}
+            src={"https://res.cloudinary.com/dcjkvwbvh/image/upload/v1699297655/vpyhnm1o0zsfsj8httyz.png"}
             containerClassname="z-30 absolute md:ml-5"
           />
           <div className="hidden md:flex md:absolute md:-mt-[120px]">

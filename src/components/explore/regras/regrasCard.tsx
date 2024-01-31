@@ -2,19 +2,21 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import CloseButtonComponent from "@/components/utils/closeButton";
 import { ImageComponent } from "@/components/utils/image";
-import { TextType } from "@/types";
+import { ImageType, TextType } from "@/types";
 import Scrollbars from "react-custom-scrollbars";
 
 interface RegrasProps {
   handleCloseRegrasModal: () => void;
   textRegrasList: TextType[];
   textSobreList: TextType[];
+  imageSobreList: ImageType[];
 }
 
 export function RegrasCardComponent({
   handleCloseRegrasModal,
   textRegrasList,
   textSobreList,
+  imageSobreList,
 }: RegrasProps) {
   const [ar756ModalMode, setAr756ModalMode] = useState<"SOBRE" | "REGRAS">(
     "SOBRE"
@@ -54,7 +56,7 @@ export function RegrasCardComponent({
           containerClassname={"z-20 rounded-md -ml-2  "}
         />
       </div>
-      <div className="flex gap-x-5 font-semibold text-[12px] md:text-[14px] mb-5 relative">
+      <div className="flex gap-x-5 font-semibold text-[12px] md:text-[14px]  relative">
         <p
           className={`relative cursor-pointer tracking-[0.10rem] ${
             ar756ModalMode.includes("SOBRE") &&
@@ -81,23 +83,17 @@ export function RegrasCardComponent({
             opacity: ar756ModalMode.includes("SOBRE") ? 1 : 0,
             transition: { duration: 0.5 },
           }}
-          className="flex flex-col items-start justify-center gap-x-3 gap-y-4 text-[13px] md:text-[15px] text-justify"
+          className="flex flex-col items-start justify-center gap-x-3 gap-y-5 text-[13px] md:text-[15px] text-justify"
         >
           {textSobreList &&
             textSobreList.map((item: TextType) => {
               return (
                 <div key={item?.id} className="flex flex-col gap-y-2">
-                  <p
-                    className={`${
-                      item?.titulo?.includes("footer") && "hidden"
-                    } font-semibold text-[14px] md:text-[18px]`}
-                  >
-                    {item?.titulo}
-                  </p>
+                
                   <p
                     className={`${
                       item?.titulo?.includes("footer") &&
-                      "text-[14px] md:text-[16px] font-semibold mb-5 mt-3"
+                      "text-[12px] md:text-[12px] font-semibold mb-5 mt-3"
                     }`}
                   >
                     {item?.text}
@@ -105,6 +101,17 @@ export function RegrasCardComponent({
                 </div>
               );
             })}
+          <div className="w-full">
+            <ImageComponent
+              src={imageSobreList[0]?.imageUrl}
+              alt=""
+              h="h-[15rem]"
+              w="w-full"
+            />
+            <p className="text-[9px] text-gray-500 font-semibold">
+              (Foto de 1975)
+            </p>
+          </div>
         </motion.div>
       )}
       {ar756ModalMode.includes("REGRAS") && (

@@ -60,6 +60,10 @@ export default function GaleriaListComponent({
             ) {
               return;
             }
+
+            if(item?.tag === "Sobre"){
+              return
+            }
             return (
               <>
                 <motion.div

@@ -14,8 +14,6 @@ import { HiArrowLeft } from "react-icons/hi";
 import { BiMailSend } from "react-icons/bi";
 import { timesVisitAvailabel } from "@/constants/horarioLista";
 import { ImageComponent } from "../utils/image";
-import { getImageListActionServer } from "@/action/imageList";
-import CarouselComponent from "../utils/carroucelv2";
 import { ImageType } from "@/types";
 
 interface ConsultarFromProps {
@@ -82,7 +80,7 @@ export function ConsultarFormComponent({
     >
       <CloseButtonComponent handleCloseModal={handleCloseReservaModal} />
       <h1 className="md:text-[21px] w-full  text-[18px] text-center py-5 ">
-        CONSULTAR ORCAMENTO
+        {isSendMailSuccess ? "" : "CONSULTAR ORCAMENTO"}
       </h1>
       <motion.div
         initial={{
@@ -404,10 +402,6 @@ export function ConsultarFormComponent({
                   // Dispara a validação dos campos
                   if (!isValid) {
                     controlsEventos.start(shakeAnimation);
-                  }else{
-                    const imageList = await getImageListActionServer();
-                    
-                    setImageList(imageList);
                   }
                 }}
                 className={`
@@ -445,11 +439,6 @@ export function ConsultarFormComponent({
           <p className="text-[15px] md:text-[20px] font-semibold text-center md:w-[430px] mx-auto ">
             Obrigado {nomeWatch} !
           </p>
-          {imageList && (
-            <div className="flex md:hidden">
-              <CarouselComponent imageList={imageList} />
-            </div>
-          )}
           <div className="w-[80%] mx-auto text-center flex flex-col gap-y-5">
             <p className="text-[13px] md:text-[16px] font-semibold text-center md:w-[430px] mx-auto ">
               Encaminhamos para seu email {emailWatch} uma simulacao do

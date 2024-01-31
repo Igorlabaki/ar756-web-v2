@@ -24,7 +24,7 @@ export function ServicoCardComponent() {
             alt={'piscina'}
             h={'h-[60px] '}
             w={'w-[100px]'}
-            src={'/assets/icons/logo/preto.png'}
+            src={'https://res.cloudinary.com/dcjkvwbvh/image/upload/v1688637347/onbridge/uswu0yqtfeo2aq3vomkf.png'}
           />
         </div>
         <h1 className="absolute w-full text-end text-2xl text-black top-[2.7rem] pr-[45px]">

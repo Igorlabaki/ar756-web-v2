@@ -17,7 +17,7 @@ export async function ServicosComponents() {
           alt={'logo-branco'}
           h={'h-[188px]'}
           w={'w-[529px]'}
-          src={'/assets/icons/logo/preto.png'}
+          src={'https://res.cloudinary.com/dcjkvwbvh/image/upload/v1688637347/onbridge/uswu0yqtfeo2aq3vomkf.png'}
           containerClassname="z-20"
         />
       </div>
@@ -37,7 +37,7 @@ rounded-md shadow-lg bottom-[10.5rem] inset-x-0 "
               alt={'piscina'}
               h={'h-[60px] '}
               w={'w-[100px]'}
-              src={'/assets/icons/logo/preto.png'}
+              src={'https://res.cloudinary.com/dcjkvwbvh/image/upload/v1688637347/onbridge/uswu0yqtfeo2aq3vomkf.png'}
             />
           </div>
           <h1 className="absolute w-full text-end text-2xl text-black top-[4.3rem] pr-[45px]">

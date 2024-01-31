@@ -28,7 +28,7 @@ export async function ComodidadeComponent() {
               alt={'logo'}
               h={'h-[60px] '}
               w={'w-[100px]'}
-              src={'/assets/icons/logo/preto.png'}
+              src={'https://res.cloudinary.com/dcjkvwbvh/image/upload/v1688637347/onbridge/uswu0yqtfeo2aq3vomkf.png'}
             />
           </div>
           <div className="border-[1px] border-black flex-1 h-0 " />

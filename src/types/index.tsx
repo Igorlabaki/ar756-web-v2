@@ -46,3 +46,31 @@ export interface CreateOrcamentoReqBody {
   valorHoraExtra: number;
   total: number;
 }
+
+export interface IBase64Files {
+  fileName: string;
+  base64String: unknown;
+}
+export interface BugdetType {
+  id?: string;
+  nome: string;
+  email: string;
+  dataFim: Date;
+  texto: string;
+  total: number;
+  telefone: string;
+  feedback: string;
+  dataInicio: Date;
+  limpeza: boolean;
+  contato: boolean;
+  valorBase: number;
+  convidados: number;
+  seguranca: boolean;
+  trafegoCanal: string;
+  conheceEspaco: boolean;
+  recepcionista: boolean;
+  qtdHorasExtras: number;
+  valorHoraExtra: number;
+  aprovadoAr756: boolean;
+  aprovadoCliente: boolean;
+}

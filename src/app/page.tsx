@@ -76,7 +76,6 @@ export default async function Home() {
         textSobreList={textSobreList}
         imageSobreList={imageSobreList}
       />
-      <MapComponent/>
     </main>
   );
 }

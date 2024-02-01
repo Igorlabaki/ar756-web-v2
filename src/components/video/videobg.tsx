@@ -1,17 +1,36 @@
-"use client"
+"use client";
 import { useState } from "react";
 import { ValueType } from "@/types";
 import { ButtonComponent } from "../utils/button";
 import { SectionComponent } from "../utils/section";
 import { ModalComponent } from "../utils/modal";
 import { ConsultarFormComponent } from "../consultar";
+import { ShowOnlyOnMobileComponent } from "../utils/showOnlyOnMobile";
+import { ShowOnlyOnWebComponent } from "../utils/showOnlyOnWeb";
 
-export  function VideobgComponent() {
-  const [isModalOpen, setisModalOpen] = useState<boolean>(false)
+export function VideobgComponent() {
+  const [isModalOpen, setisModalOpen] = useState<boolean>(false);
   return (
     <SectionComponent classname="object-cover">
-     <video className="max-h-full min-h-screen min-w-screen object-cover z-0" src={"/assets/video/videoBg.mp4"} autoPlay loop muted/>
-     <ButtonComponent
+      <ShowOnlyOnMobileComponent>
+        <video
+          className="max-h-full min-h-screen min-w-screen object-cover z-0"
+          src={"/assets/video/videoBg.mp4"}
+          autoPlay
+          loop
+          muted
+        />
+      </ShowOnlyOnMobileComponent>
+      <ShowOnlyOnWebComponent>
+      <video
+          className="max-h-full min-h-screen min-w-screen object-cover z-0"
+          src={"/assets/video/videoBg.mp4"}
+          autoPlay
+          loop
+          muted
+        />
+      </ShowOnlyOnWebComponent>
+      <ButtonComponent
         title="CONSULTAR"
         className={`
           before:text-opacity-40
@@ -26,12 +45,13 @@ export  function VideobgComponent() {
           `}
         onClick={() => setisModalOpen(true)}
       />
-      {
-        isModalOpen &&
-         <ModalComponent onClose={() => setisModalOpen(false)}>
-            <ConsultarFormComponent handleCloseReservaModal={() => setisModalOpen(false)}/>
-         </ModalComponent>
-      }
+      {isModalOpen && (
+        <ModalComponent onClose={() => setisModalOpen(false)}>
+          <ConsultarFormComponent
+            handleCloseReservaModal={() => setisModalOpen(false)}
+          />
+        </ModalComponent>
+      )}
     </SectionComponent>
   );
 }

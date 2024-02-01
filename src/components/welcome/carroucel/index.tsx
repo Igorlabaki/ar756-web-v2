@@ -17,7 +17,7 @@ export function WelcomeCarroucelComponent({ imageList }: WelcomeCarroucelProps) 
       x: 0,
     },
     onscreen: {
-      x: -900,
+      x: -500,
       transition: {
         type: 'linear',
         duration: 5,
@@ -28,7 +28,7 @@ export function WelcomeCarroucelComponent({ imageList }: WelcomeCarroucelProps) 
   useEffect(() => {
     setWidth(() => caroucel.current.scrollWidth - caroucel.current.offsetWidth);
   }, [caroucel?.current?.scrollWidth, caroucel]);
-
+  
   return (
     <motion.div
       ref={caroucel}
@@ -42,7 +42,7 @@ export function WelcomeCarroucelComponent({ imageList }: WelcomeCarroucelProps) 
         viewport={{ once: true, amount: 'all' }}
         dragConstraints={{ right: 0, left: -width }}
         whileTap={{ cursor: 'grabbing' }}
-        className="flex w-full h-full p-1 gap-x-1 "
+        className="flex w-full h-full p-1 gap-x-1"
       >
         <AnimatePresence>
           {imageList?.map((item: ImageType) => {

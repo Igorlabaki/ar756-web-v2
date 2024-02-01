@@ -49,12 +49,12 @@ export function ModalComponent({
       onClick={(e) => handleOutsideClick(e)}
       className={`${
         styleExternal ? styleExternal : 'bg-black/40'
-      } flex justify-center items-center  w-screen h-screen fixed  top-0 right-0 z-40 `}
+      } flex md:justify-center md:items-center max-w-full  w-full md:w-screen h-full fixed  top-0 right-0 z-40 `}
     >
       <div
         id="internal_modal"
         className={twMerge(
-          `absolute z-50 flex justify-start items-start   rounded-md  overflow-hidden bg-white `,
+          `absolute z-50 flex justify-start items-start h-full   md:rounded-md  overflow-hidden bg-white `,
           styleInternal,
         )}
       >

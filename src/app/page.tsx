@@ -2,8 +2,10 @@ import { ComodidadeComponent } from "@/components/comodidades";
 import { ExploreComponent } from "@/components/explore";
 import { FooterComponent } from "@/components/footer";
 import { HomeHeaderComponent } from "@/components/header";
+import { MobileCarroucelComopnent } from "@/components/mobileCarroucel";
 import { ServicosComponents } from "@/components/servicos/servicos";
 import MapComponent from "@/components/utils/map";
+import { ShowOnlyOnMobileComponent } from "@/components/utils/showOnlyOnMobile";
 import { ShowOnlyOnWebComponent } from "@/components/utils/showOnlyOnWeb";
 import { VideobgComponent } from "@/components/video/videobg";
 import { WelcomeComponent } from "@/components/welcome";
@@ -61,9 +63,12 @@ export default async function Home() {
   });
 
   return (
-    <main className="bg-faixada flex flex-col flex-1 bg-gray-300 min-h-screen w-full">
+    <main className="bg-faixada flex flex-col flex-1 bg-gray-300">
       <VideobgComponent />
       <WelcomeComponent />
+      <ShowOnlyOnMobileComponent>
+        <MobileCarroucelComopnent />
+      </ShowOnlyOnMobileComponent>
       <ShowOnlyOnWebComponent>
         <ComodidadeComponent />
         <ServicosComponents />

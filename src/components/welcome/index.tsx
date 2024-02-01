@@ -11,7 +11,7 @@ import { ShowOnlyOnWebComponent } from "@/components/utils/showOnlyOnWeb";
 export async function WelcomeComponent() {
 
   const welcomeMobileImageList: ImageType[] = await fetch(
-    `${process.env.BASE_URL}/image/getByTag/Grid/Mobile`,
+    `${process.env.BASE_URL}/image/getByTag/Carroucel/Mobile`,
     {
       method: "GET",
       cache: "no-cache",
@@ -35,6 +35,7 @@ export async function WelcomeComponent() {
         <WelcomeTextsComponent />
       </div>
       <ShowOnlyOnMobileComponent>
+
         <WelcomeCarroucelComponent imageList={welcomeMobileImageList} />
       </ShowOnlyOnMobileComponent>
       <ShowOnlyOnWebComponent>

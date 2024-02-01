@@ -76,7 +76,7 @@ export function ConsultarFormComponent({
     <form
       onSubmit={handleSubmit(handleOnSubmit)}
       encType="multipart/form-data"
-      className="max-w-[600px] w-full h-full bg-white relative rounded-md py-5 px-5 flex flex-col gap-y-5 shadow-lg md:mt-2 scrollbar-thin scrollbar-rounded-[2rem] scrollbar-thumb-gray-400 scrollbar-track-gray-100 scrollbar-rounded-full"
+      className="overflow-hidden md:max-w-[600px] max-w-[390px] w-full  max-h-full bg-white relative rounded-md py-5 px-5 flex flex-col gap-y-5 shadow-lg md:mt-2 scrollbar-thin scrollbar-rounded-[2rem] scrollbar-thumb-gray-400 scrollbar-track-gray-100 scrollbar-rounded-full"
     >
       <CloseButtonComponent handleCloseModal={handleCloseReservaModal} />
       <h1 className="md:text-[21px] w-full  text-[18px] text-center py-5 ">
@@ -99,7 +99,7 @@ export function ConsultarFormComponent({
             x: 0,
           }}
           animate={controlsPessoais}
-          className="z-50 flex flex-col w-full min-w-full "
+          className="z-50 flex flex-col w-full min-w-full bg-red-900"
         >
           <div className="flex flex-col flex-1 h-full gap-y-6">
             <InputComponent<ConsultarFormData>

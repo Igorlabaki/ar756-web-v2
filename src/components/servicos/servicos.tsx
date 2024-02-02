@@ -1,3 +1,4 @@
+"use client"
 import { BsSpeaker } from 'react-icons/bs';
 import { GiCctvCamera } from 'react-icons/gi';
 import { IoMdMusicalNotes } from 'react-icons/io';
@@ -7,9 +8,14 @@ import { ImageComponent } from '@/components/utils/image';
 import { SectionComponent } from '@/components/utils/section';
 import { CardComponent } from '../card';
 import { ItemCardComponent } from '../card/itemCard';
+import { ButtonComponent } from '../utils/button';
+import { ModalComponent } from '../utils/modal';
+import { ConsultarFormComponent } from '../consultar';
+import { useState } from 'react';
 
 
-export async function ServicosComponents() {
+export  function ServicosComponents() {
+  const [isModalOpen, setisModalOpen] = useState<boolean>(false);
   return (
     <SectionComponent>
       <div className="hidden md:flex absolute left-10   -mt-[85px]">
@@ -74,6 +80,25 @@ rounded-md shadow-lg bottom-[10.5rem] inset-x-0 "
             />
           </div>
         </div>
+        <ButtonComponent
+        title="CONSULTAR"
+        className={`
+          z-30
+          px-10 py-4
+          text-[15px]  md:text-[20px]
+          hover:bg-zinc-900
+           tracking-[0.30rem] text-white rounded-md bg-black
+          transition duration-300 ease-in-out hover:scale-[1.05] active:scale-[0.95] active:transition-none active:duration-700
+          `}
+        onClick={() => setisModalOpen(true)}
+      />
+      {isModalOpen && (
+        <ModalComponent onClose={() => setisModalOpen(false)}>
+          <ConsultarFormComponent
+            handleCloseReservaModal={() => setisModalOpen(false)}
+          />
+        </ModalComponent>
+      )}
       </CardComponent>
     </SectionComponent>
   );

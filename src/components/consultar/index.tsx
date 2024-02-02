@@ -76,7 +76,10 @@ export function ConsultarFormComponent({
     <form
       onSubmit={handleSubmit(handleOnSubmit)}
       encType="multipart/form-data"
-      className="overflow-hidden md:max-w-[600px] max-w-[390px] w-full  max-h-full bg-white relative rounded-md py-5 px-5 flex flex-col gap-y-5 shadow-lg md:mt-2 scrollbar-thin scrollbar-rounded-[2rem] scrollbar-thumb-gray-400 scrollbar-track-gray-100 scrollbar-rounded-full"
+      className="overflow-hidden md:max-w-[600px] max-w-[390px] w-full   md:max-h-[95%]
+        relative rounded-md py-5 px-5 flex flex-col gap-y-5 md:shadow-lg md:mt-2 
+       scrollbar-thin scrollbar-rounded-[2rem] scrollbar-thumb-gray-400 scrollbar-track-gray-100 
+       scrollbar-rounded-full"
     >
       <CloseButtonComponent handleCloseModal={handleCloseReservaModal} />
       <h1 className="md:text-[21px] w-full  text-[18px] text-center py-5 ">
@@ -92,16 +95,16 @@ export function ConsultarFormComponent({
             duration: 0.5,
           },
         }}
-        className="flex "
+        className="flex w-full h-full"
       >
         <motion.div
           initial={{
             x: 0,
           }}
           animate={controlsPessoais}
-          className="z-50 flex flex-col w-full min-w-full bg-red-900"
+          className="z-50 flex flex-col min-w-full  h-full"
         >
-          <div className="flex flex-col flex-1 h-full gap-y-6">
+          <div className="flex flex-col flex-1 h-full w-full gap-y-6 ">
             <InputComponent<ConsultarFormData>
               title="nome"
               entity="nome"
@@ -119,7 +122,7 @@ export function ConsultarFormComponent({
               errorsMsg={errors?.email?.message}
             />
 
-            <div className="flex flex-col w-full gap-y-2">
+            <div className="flex flex-col gap-y-2">
               <label
                 htmlFor="nome"
                 className={`font-semibold  text-[12px] md:text-[15px]`}

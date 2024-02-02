@@ -7,7 +7,7 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 interface GridModalProps {
   isModalOpen: boolean;
-  imageList: ImageType[];
+  imageList: ImageType[] | undefined;
   imageId: string | undefined;
   setIsModalOpen: (value: boolean) => void;
 }
@@ -19,14 +19,16 @@ export function GridModalComponent({
   setIsModalOpen,
 }: GridModalProps) {
   const [searchIndex, setSearchIndex] = useState<number>(
-    imageList.findIndex((item: ImageType) => item.id === imageId)
+    imageList
+      ? imageList?.findIndex((item: ImageType) => item.id === imageId)
+      : 0
   );
   return (
     <ModalComponent
       onClose={() => setIsModalOpen(false)}
       styleInternal="bg-transparent flex flex-row  md:h-[31.25rem] md:w-[60rem] relative"
     >
-      {searchIndex > 0 && (
+      {searchIndex && searchIndex > 0 && (
         <MdKeyboardArrowLeft
           className="text-white text-[3rem] z-30 absolute mt-[14rem] cursor-pointer"
           onClick={() => {
@@ -40,19 +42,20 @@ export function GridModalComponent({
         animate={{ x: searchIndex * -960 }}
         transition={{ duration: 0.5 }}
       >
-        {imageList.map((image: ImageType) => {
-          return (
-            <ImageComponent
-              key={image.id}
-              h="md:h-[31.25rem]"
-              w={"md:w-[60rem]"}
-              src={image.imageUrl}
-              alt="photo"
-            />
-          );
-        })}
+        {imageList &&
+          imageList.map((image: ImageType) => {
+            return (
+              <ImageComponent
+                key={image.id}
+                h="md:h-[31.25rem]"
+                w={"md:w-[60rem]"}
+                src={image.imageUrl}
+                alt="photo"
+              />
+            );
+          })}
       </motion.div>
-      {searchIndex < imageList.length -1 && (
+      {imageList && searchIndex < imageList?.length - 1 && (
         <MdKeyboardArrowRight
           className="text-white absolute mt-[14rem]  z-30 right-0  text-[3rem]  cursor-pointer"
           onClick={() => {

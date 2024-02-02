@@ -54,7 +54,7 @@ export function ModalComponent({
       <div
         id="internal_modal"
         className={twMerge(
-          `absolute z-50 flex justify-start items-start h-full   md:rounded-md  overflow-hidden bg-white `,
+          `absolute z-50 flex justify-start items-start min-h-[100%] md:min-h-[10%]   md:rounded-md  overflow-hidden bg-white `,
           styleInternal,
         )}
       >

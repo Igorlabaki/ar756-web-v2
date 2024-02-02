@@ -1,3 +1,4 @@
+"use client"
 import { BiBeer, BiDumbbell } from 'react-icons/bi';
 import { BsCarFrontFill, BsFlower1 } from 'react-icons/bs';
 import { FaSwimmingPool, FaWifi } from 'react-icons/fa';
@@ -8,9 +9,14 @@ import { ImageType } from '@/types';
 import { ImageComponent } from '../utils/image';
 import { CardComponent } from '../card';
 import { ItemCardComponent } from '../card/itemCard';
+import { ButtonComponent } from '../utils/button';
+import { ModalComponent } from '../utils/modal';
+import { ConsultarFormComponent } from '../consultar';
+import { useState } from 'react';
 
 
-export async function ComodidadeComponent() {
+export  function ComodidadeComponent() {
+  const [isModalOpen, setisModalOpen] = useState<boolean>(false);
   return (
     <SectionComponent>
       <div className="w-screen h-screen">
@@ -81,6 +87,25 @@ export async function ComodidadeComponent() {
             />
           </div>
         </div>
+        <ButtonComponent
+        title="CONSULTAR"
+        className={`
+          z-30
+          px-10 py-4
+          text-[15px]  md:text-[20px]
+          hover:bg-zinc-900
+           tracking-[0.30rem] text-white rounded-md bg-black
+          transition duration-300 ease-in-out hover:scale-[1.05] active:scale-[0.95] active:transition-none active:duration-700
+          `}
+        onClick={() => setisModalOpen(true)}
+      />
+      {isModalOpen && (
+        <ModalComponent onClose={() => setisModalOpen(false)}>
+          <ConsultarFormComponent
+            handleCloseReservaModal={() => setisModalOpen(false)}
+          />
+        </ModalComponent>
+      )}
       </CardComponent>
     </SectionComponent>
   );

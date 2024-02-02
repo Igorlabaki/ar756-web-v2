@@ -1,10 +1,7 @@
-import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Scrollbars from "react-custom-scrollbars";
 import { ImageType } from "@/types";
-import ImageLoadingComponent from "@/components/utils/imageLoading";
-import { ImageComponent } from "@/components/utils/image";
-import { GridModalComponent } from "@/components/welcome/grid/gridModal";
+import GaleriaItemComponent from "./galeriaItem";
 
 interface GaleriaListProps {
   galeriaModalMode: string;
@@ -21,7 +18,7 @@ export default function GaleriaListComponent({
   const checkScreenSize = () => {
     setIsSmallScreen(window.innerWidth <= 768); // Por exemplo, consideramos 768px como o ponto de corte para ser uma tela pequena
   };
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
   // Executa a função ao montar o componente
   useEffect(() => {
     checkScreenSize();
@@ -65,36 +62,7 @@ export default function GaleriaListComponent({
               return
             }
             return (
-              <>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    opacity: 1,
-                    transition: { duration: 1 },
-                  }}
-                  /*                onClick={handleOpenModal} */
-                  key={item.imageUrl}
-                  className="overflow-hidden rounded-lg shadow-pics cursor-pointer"
-                  onClick={() => setIsModalOpen(true)}
-                >
-                  <ImageComponent
-                    alt={""}
-                    h={"h-[200px] md:h-[180px]"}
-                    w={"w-[395px] md:w-[250px]"}
-                    src={`${item.imageUrl}`}
-                    containerClassname={" rounded-lg "}
-                  />
-                </motion.div>
-                {isModalOpen && (
-                  <GridModalComponent
-                    key={index}
-                    isModalOpen={isModalOpen}
-                    setIsModalOpen={setIsModalOpen}
-                    imageId={item.id}
-                    imageList={imageList}
-                  />
-                )}
-              </>
+              <GaleriaItemComponent imageList={imageList} index={index} item={item} key={item?.id}/>
             );
           })}
       </div>

@@ -89,7 +89,6 @@ export function ComodidadeCardComponent() {
           />
         </div>
       </div>
-      <p></p>
       <ButtonComponent
         title="CONSULTAR"
         className={`

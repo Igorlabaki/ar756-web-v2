@@ -18,7 +18,7 @@ export function ExploreCardComponent({
   title,
 }: ExploreCardProps) {
   return (
-    <div className="opacity-[1.5] relative w-full h-[400px] md:w-[400px] md:h-[400px] flex justify-center items-center text-[24px]  tracking-[0.25rem] md:hover:scale-105 duration-300 md:brightness-75 active:scale-95 hover:brightness-110  cursor-pointer rounded-md overflow-hidden">
+    <div className="opacity-[1.5] relative w-[370px] h-[400px] md:w-[400px] md:h-[400px] flex justify-center items-center text-[24px]  tracking-[0.25rem] md:hover:scale-105 duration-300 md:brightness-75 active:scale-95 hover:brightness-110  cursor-pointer rounded-md overflow-hidden">
       <div className="bg-black/30 w-full h-full absolute z-30"/>
       <ImageComponent
         alt={alt}

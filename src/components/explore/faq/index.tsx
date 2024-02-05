@@ -18,8 +18,8 @@ export default function FaqComponent({ handleCloseFaqModal,questionList }: FaqPr
       <div className="flex items-center justify-center w-full">
         <ImageComponent
           alt={"logo"}
-          h={"h-[120px] md:h-[180px]"}
-          w={"w-[120px] md:w-[250px]"}
+          h={"h-[130px] md:h-[180px]"}
+          w={"w-[150px] md:w-[250px]"}
           src={
             "https://res.cloudinary.com/dcjkvwbvh/image/upload/v1688637347/onbridge/uswu0yqtfeo2aq3vomkf.png"
           }

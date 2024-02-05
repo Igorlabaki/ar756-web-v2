@@ -43,13 +43,18 @@ export function RegrasCardComponent({
   }, []);
 
   return (
-    <div className=" w-screen h-full min-h-full bg-white  relative rounded-md py-5 px-5 flex flex-col gap-y-5 md:mt-2 scrollbar-thin scrollbar-rounded-[2rem] scrollbar-thumb-gray-400 scrollbar-track-gray-100 scrollbar-rounded-full">
+    <div
+      className="overflow-hidden  md:max-w-[600px] md:min-w-[600px] min-w-[380px]  md:max-h-[95%] md:min-h-[95%]
+    relative rounded-md py-5 px-5 flex flex-col gap-y-5 md:shadow-lg md:mt-2 
+    bg-white 
+   "
+    >
       <CloseButtonComponent handleCloseModal={handleCloseRegrasModal} />
       <div className="flex items-center justify-center w-full">
         <ImageComponent
           alt={"logo"}
-          h={"h-[100px] md:h-[180px]"}
-          w={"w-[100px] md:w-[250px]"}
+          h={"h-[130px] md:h-[180px]"}
+          w={"w-[150px] md:w-[250px]"}
           src={
             "https://res.cloudinary.com/dcjkvwbvh/image/upload/v1688637347/onbridge/uswu0yqtfeo2aq3vomkf.png"
           }
@@ -83,41 +88,50 @@ export function RegrasCardComponent({
             opacity: ar756ModalMode.includes("SOBRE") ? 1 : 0,
             transition: { duration: 0.5 },
           }}
-          className="flex flex-col items-start justify-center gap-x-3 gap-y-5 text-[13px] md:text-[15px] text-justify"
+          className="flex flex-col items-start justify-center gap-x-3 gap-y-5 text-[13px] md:text-[15px] text-justify min-w-full"
         >
-          {textSobreList &&
-            textSobreList.map((item: TextType) => {
-              return (
-                <div key={item?.id} className="flex flex-col gap-y-2">
-                
-                  <p
-                    className={`${
-                      item?.titulo?.includes("footer") &&
-                      "text-[12px] md:text-[12px] font-semibold mb-5 mt-3"
-                    }`}
-                  >
-                    {item?.text}
-                  </p>
-                </div>
-              );
-            })}
-          <div className="w-full">
-            <ImageComponent
-              src={imageSobreList[0]?.imageUrl}
-              alt=""
-              h="h-[15rem]"
-              w="w-full"
-            />
-            <p className="text-[9px] text-gray-500 font-semibold">
-              (Foto de 1975)
-            </p>
-          </div>
+          <Scrollbars
+            style={{
+              width: isSmallScreen ? "90%" : "100%",
+              height: isSmallScreen ? 550 : 600,
+              gap: 20,
+            }}
+          >
+            <div className="pr-2 md:pr-0">
+              {textSobreList &&
+                textSobreList.map((item: TextType) => {
+                  return (
+                    <div key={item?.id} className="flex flex-col gap-y-2">
+                      <p
+                        className={`${
+                          item?.titulo?.includes("footer") &&
+                          "text-[12px] md:text-[12px] font-semibold mb-5 mt-3"
+                        }`}
+                      >
+                        {item?.text}
+                      </p>
+                    </div>
+                  );
+                })}
+              <div className="w-full mt-3">
+                <ImageComponent
+                  src={imageSobreList[0]?.imageUrl}
+                  alt=""
+                  h="h-[15rem]"
+                  w="w-full"
+                />
+                <p className="text-[9px] text-gray-500 font-semibold">
+                  (Foto de 1975)
+                </p>
+              </div>
+            </div>
+          </Scrollbars>
         </motion.div>
       )}
       {ar756ModalMode.includes("REGRAS") && (
         <Scrollbars
           style={{
-            width: "100%",
+            width: isSmallScreen ? "90%" : "100%",
             height: 500,
             gap: 20,
           }}

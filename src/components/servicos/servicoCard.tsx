@@ -6,8 +6,13 @@ import { RiLightbulbLine } from 'react-icons/ri';
 import { ImageComponent } from '@/components/utils/image';
 import { CardComponent } from '../card';
 import { ItemCardComponent } from '../card/itemCard';
+import { useState } from 'react';
+import { ButtonComponent } from '../utils/button';
+import { ModalComponent } from '../utils/modal';
+import { ConsultarFormComponent } from '../consultar';
 
 export function ServicoCardComponent() {
+  const [isModalOpen, setisModalOpen] = useState<boolean>(false);
   return (
     <CardComponent
       h=" h-full md:h-[500px]"
@@ -61,6 +66,25 @@ export function ServicoCardComponent() {
           />
         </div>
       </div>
+      <ButtonComponent
+        title="CONSULTAR"
+        className={`
+          z-30
+          px-10 py-4
+          text-[15px]  md:text-[20px]
+          hover:bg-zinc-900
+           tracking-[0.30rem] text-white rounded-md bg-black
+          transition duration-300 ease-in-out hover:scale-[1.05] active:scale-[0.95] active:transition-none active:duration-700
+          `}
+        onClick={() => setisModalOpen(true)}
+      />
+      {isModalOpen && (
+        <ModalComponent onClose={() => setisModalOpen(false)}>
+          <ConsultarFormComponent
+            handleCloseReservaModal={() => setisModalOpen(false)}
+          />
+        </ModalComponent>
+      )}
     </CardComponent>
   );
 }

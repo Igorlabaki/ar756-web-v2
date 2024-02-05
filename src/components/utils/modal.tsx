@@ -49,12 +49,12 @@ export function ModalComponent({
       onClick={(e) => handleOutsideClick(e)}
       className={`${
         styleExternal ? styleExternal : 'bg-black/40'
-      } flex md:justify-center md:items-center max-w-full  w-full md:w-screen h-full fixed  top-0 right-0 z-40 `}
+      } flex justify-center items-center max-w-full  w-full md:w-screen h-full fixed  top-0 right-0 z-40 `}
     >
       <div
         id="internal_modal"
         className={twMerge(
-          `absolute z-50 flex justify-start items-start min-h-[100%] md:min-h-[10%]   md:rounded-md  overflow-hidden bg-white `,
+          `absolute z-50 flex justify-start items-start  md:rounded-md overflow-hidden scrollbar-none  `,
           styleInternal,
         )}
       >
@@ -65,5 +65,4 @@ export function ModalComponent({
   );
 }
 
-/*  scrollbar-thin scrollbar-rounded-[2rem]
-           scrollbar-thumb-gray-300 scrollbar-track-gray-100 scrollbar-rounded-full  overflow-y-scroll*/
+/*  */

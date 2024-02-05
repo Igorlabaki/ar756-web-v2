@@ -76,10 +76,9 @@ export function ConsultarFormComponent({
     <form
       onSubmit={handleSubmit(handleOnSubmit)}
       encType="multipart/form-data"
-      className="overflow-hidden md:max-w-[600px] max-w-[390px] w-full   md:max-h-[95%]
-        relative rounded-md py-5 px-5 flex flex-col gap-y-5 md:shadow-lg md:mt-2 
-       scrollbar-thin scrollbar-rounded-[2rem] scrollbar-thumb-gray-400 scrollbar-track-gray-100 
-       scrollbar-rounded-full"
+      className="overflow-hidden mx-w-screen min-w-screen min-h-screen rounded-none md:max-w-[600px] max-w-[390px] w-full   md:max-h-[95%] md:min-h-[95%]
+        relative md:rounded-md py-5 px-5 flex flex-col gap-y-5 md:shadow-lg md:mt-2 
+        bg-white"
     >
       <CloseButtonComponent handleCloseModal={handleCloseReservaModal} />
       <h1 className="md:text-[21px] w-full  text-[18px] text-center py-5 ">
